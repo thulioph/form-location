@@ -60,12 +60,20 @@ angular.module('formLocationApp')
               location_info.state = results[0].address_components[4].long_name;
               location_info.country = results[0].address_components[5].long_name;
 
-              $scope.user_data = location_info;
+              $scope.location_info = location_info;
+
+              $scope.user_data = {
+                address: $scope.location_info.address,
+                neighborhood: $scope.location_info.neighborhood,
+                city: $scope.location_info.city,
+                state: $scope.location_info.state,
+                country: $scope.location_info.country
+              };
 
               infowindow.setContent(location_info.full_address);
               infowindow.open(map, marker);
 
-              console.log('$scope.user_data -> ', $scope.user_data);
+              $scope.$apply();
             } else {
               alert('Sem resultados..');
             }
