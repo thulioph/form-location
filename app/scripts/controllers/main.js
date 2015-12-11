@@ -10,7 +10,7 @@
 angular.module('formLocationApp')
   .controller('MainCtrl', ['$scope', function ($scope) {
 
-    // localizando o usuário
+    // searching user location
     $scope.getUserLocation = function() {
       var geocoder, latlng, mapOptions, map, infowindow, marker, location_info;
 
@@ -20,7 +20,7 @@ angular.module('formLocationApp')
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(success, error);
         } else {
-          console.warn('Geolocation não é suportado pelo seu navegador.')
+          console.warn('Geolocation is not supported.')
         }
       };
 
@@ -40,7 +40,7 @@ angular.module('formLocationApp')
         infowindow = new google.maps.InfoWindow;
 
         geocoder.geocode({'latLng': latlng}, function(results, status) {
-          console.warn(results);
+          // console.warn(results);
 
           if (status == google.maps.GeocoderStatus.OK) {
             if (results[0]) {
@@ -52,8 +52,6 @@ angular.module('formLocationApp')
               });
 
               location_info.full_address = results[0].formatted_address;
-              // location_info.zip = results[3].address_components[0].long_name;
-
               location_info.address = results[0].address_components[0].long_name;
               location_info.neighborhood = results[0].address_components[1].long_name;
               location_info.city = results[0].address_components[2].long_name;
@@ -75,10 +73,10 @@ angular.module('formLocationApp')
 
               $scope.$apply();
             } else {
-              alert('Sem resultados..');
+              alert('Without results..');
             }
           } else {
-            alert('Geocoder falhou por conta de: ' + status);
+            alert('Geocoder error: ' + status);
           }
         });
 
@@ -93,11 +91,13 @@ angular.module('formLocationApp')
     };
     // ====
 
-    // enviar pedido
+    // send data
     $scope.user_data = {};
 
     $scope.hungry = function() {
-      console.log($scope.user_data);
+      $scope.msg = $scope.user_data;
+
+      // console.warn($scope.msg);
     };
     // ====
 
