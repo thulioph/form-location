@@ -3,6 +3,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import "_landing";
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -65,17 +67,6 @@ body {
   p + h4 {
     margin-top: 28px;
   }
-}
-
-.glyphicon-heart {
-  color: red;
-}
-
-.map-canvas {
-  height: 240px;
-  margin-bottom: 20px;
-  border-top: 1px solid #CCC;
-  border-bottom: 1px solid #CCC;
 }
 
 /* Responsive: Portrait tablets and up */
