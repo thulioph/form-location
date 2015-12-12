@@ -34,9 +34,7 @@ body {
   background-color: #EEE;
 }
 
-.footer {
-  text-align: center;
-}
+.footer { text-align: center; }
 
 .box {
   margin-bottom: 80px;
@@ -54,9 +52,7 @@ body {
   a { text-decoration: none; }
 }
 
-.glyphicon-heart {
-  color: red;
-}
+.glyphicon-heart { color: red; }
 
 .map-canvas {
   height: 240px;
@@ -69,9 +65,7 @@ body {
   li {
     margin-bottom: 10px;
 
-    &:first-child {
-      margin-top: 30px;
-    }
+    &:first-child { margin-top: 30px; }
   }
 
   img {
@@ -81,4 +75,3 @@ body {
 
   p { display: inline-block; }
 }
-
